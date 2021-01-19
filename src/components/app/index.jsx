@@ -1,5 +1,4 @@
-import React from 'react'
-import Filter from '../filter'
+import React from 'react';
 import Posts from '../posts';
 
 import './app.scss';
@@ -7,7 +6,6 @@ import './app.scss';
 function App() {
     return (
         <div className="wrapper">
-            <Filter />
             <Posts />
         </div>
     )

@@ -1,8 +1,30 @@
 .post {
+    flex: 0 1 32%;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 20px 20px;
+    &:not(:nth-child(-n + 3)) {
+        margin-top: 15px;
+    }
     &__title {
+        font-weight: 400;
+        font-size: 22px;
+        color: rgb(101, 174, 241);
+        margin-bottom: 10px;
+        min-height: 80px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
     }
     &__text {
+        margin-bottom: 10px;
+        font-size: 18px;
+        min-height: 100px;
+        height: 100%;
     }
     &__author {
+        font-size: 16px;
+        color: darkgrey;
     }
 }
