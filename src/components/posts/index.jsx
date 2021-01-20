@@ -43,8 +43,8 @@ function Posts() {
             <Filter onHandleChange={onHandleChange} />
             <div className="posts">
                 {posts && !term
-                    ? posts.map((post) => <Post {...post} key={Math.random() * 10} />)
-                    : posts.filter((post) => post.name.includes(term)).map((post) => <Post {...post} key={Math.random() * 10} />)}
+                    ? posts.map((post) => <Post {...post} key={post.id} />)
+                    : posts.filter((post) => post.name.includes(term)).map((post) => <Post {...post} key={post.id} />)}
             </div>
         </div>
     )
