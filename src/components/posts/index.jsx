@@ -10,19 +10,27 @@ function Posts() {
     const [term, setTerm] = useState('');
 
     async function fetchedPosts() {
-        const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=10");
+        const res = await fetch("https://jsonplaceholder.typicode.com/posts");
         const dataPosts = await res.json();
-        const resNames = await fetch("https://jsonplaceholder.typicode.com/users");
-        const dataNames = await resNames.json();
+        const resUsers = await fetch("https://jsonplaceholder.typicode.com/users");
+        const dataUsers = await resUsers.json();
+
         let concatData = [];
-        dataPosts.forEach((dataPost, i) => {
-            concatData.push({
-                ...dataPost,
-                name: dataNames[i].name
+
+        dataPosts.forEach((dataPost) => {
+            dataUsers.forEach((dataUser) => {
+                if (dataPost.userId === dataUser.id) {
+                    console.log(dataUser.name);
+                    concatData.push({
+                        ...dataPost,
+                        name: dataUser.name
+                    })
+                }
             })
         })
+
         setPosts(concatData)
-        console.log(concatData);
+
     }
 
     const onHandleChange = (e) => {
@@ -34,7 +42,6 @@ function Posts() {
         fetchedPosts();
     }, [])
 
-    console.log(term);
 
 
 

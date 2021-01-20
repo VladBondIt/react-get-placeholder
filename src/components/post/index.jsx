@@ -3,6 +3,9 @@ import React from 'react';
 import './post.scss';
 
 function Post({ title, body, name }) {
+
+
+
     return (
         <div className="post">
             <h1 className="post__title">{title}</h1>
