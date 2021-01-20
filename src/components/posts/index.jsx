@@ -20,7 +20,6 @@ function Posts() {
         dataPosts.forEach((dataPost) => {
             dataUsers.forEach((dataUser) => {
                 if (dataPost.userId === dataUser.id) {
-                    console.log(dataUser.name);
                     concatData.push({
                         ...dataPost,
                         name: dataUser.name
