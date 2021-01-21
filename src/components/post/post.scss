@@ -23,12 +23,17 @@
         margin-bottom: 10px;
         display: flex;
         align-items: center;
-        text-transform: capitalize;
+        &:first-letter {
+            text-transform: capitalize;
+        }
     }
     &__text {
         margin-bottom: 10px;
         font-size: 18px;
         flex: 1 1 100%;
+        &:first-letter {
+            text-transform: capitalize;
+        }
     }
     &__author {
         font-size: 16px;
