@@ -12,23 +12,23 @@ function Posts() {
     async function fetchedPosts() {
         const res = await fetch("https://jsonplaceholder.typicode.com/posts");
         const dataPosts = await res.json();
-        const resUsers = await fetch("https://jsonplaceholder.typicode.com/users");
-        const dataUsers = await resUsers.json();
+        // const resUsers = await fetch("https://jsonplaceholder.typicode.com/users?id=2");
+        // const dataUsers = await resUsers.json();
 
-        let concatData = [];
+        // let concatData = [];
 
-        dataPosts.forEach((dataPost) => {
-            dataUsers.forEach((dataUser) => {
-                if (dataPost.userId === dataUser.id) {
-                    concatData.push({
-                        ...dataPost,
-                        name: dataUser.name
-                    })
-                }
-            })
-        })
+        // dataPosts.forEach((dataPost) => {
+        //     dataUsers.forEach((dataUser) => {
+        //         if (dataPost.userId === dataUser.id) {
+        //             concatData.push({
+        //                 ...dataPost,
+        //                 name: dataUser.name
+        //             })
+        //         }
+        //     })
+        // })
 
-        setPosts(concatData)
+        setPosts(dataPosts)
 
     }
 
@@ -48,9 +48,10 @@ function Posts() {
         <div className="container">
             <Filter onHandleChange={onHandleChange} />
             <div className="posts">
-                {posts && !term
+                {/* {posts && !term
                     ? posts.map((post) => <Post {...post} key={post.id} />)
-                    : posts.filter((post) => post.name.includes(term)).map((post) => <Post {...post} key={post.id} />)}
+                    : posts.filter((post) => post.name.includes(term)).map((post) => <Post {...post} key={post.id} />)} */}
+                {posts && posts.map((post) => <Post {...post} term={term} key={post.id} />)}
             </div>
         </div>
     )
